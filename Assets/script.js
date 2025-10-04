@@ -12,6 +12,10 @@ window.onload = function () {
   let resetBtn = document.querySelector("#reset");
   let lapBtn = document.querySelector("#lap");
   let lapList = document.querySelector("#lap-list");
+  let lapCount = 0;
+  let modeBtn = document.querySelector("#theme");
+
+  document.body.classList.add("light");
 
   let interval;
 
@@ -38,14 +42,14 @@ window.onload = function () {
 
     if (seconds > 59) {
       minutes++;
-      appendMinutes.innerHTML = "0" + minutes;
+      appendMinutes.innerHTML = minutes < 10 ? "0" + minutes : minutes;
       seconds = 0;
-      appendSeconds.innerHTML = "0" + 0;
+      appendSeconds.innerHTML = "00";
     }
 
     if (minutes > 59) {
       hours++;
-      appendHours.innerHTML = "0" + hours;
+      appendHours.innerHTML = hours < 10 ? "0" + hours : hours;
       minutes = 0;
       appendMinutes.innerHTML = "0" + 0;
     }
@@ -60,6 +64,14 @@ window.onload = function () {
     clearInterval(interval);
   };
 
+  lapBtn.onclick = () => {
+    lapCount++;
+    let lapTime = `${appendHours.innerHTML}:${appendMinutes.innerHTML}:${appendSeconds.innerHTML}:${appendTens.innerHTML}`;
+    let li = document.createElement("li");
+    li.textContent = `Lap ${lapCount}: ${lapTime}`;
+    lapList.appendChild(li);
+  };
+
   resetBtn.onclick = () => {
     clearInterval(interval);
     tens = "00";
@@ -71,13 +83,14 @@ window.onload = function () {
     appendMinutes.innerHTML = minutes;
     appendHours.innerHTML = hours;
     lapList.innerHTML = "";
+    lapCount = 0;
   };
 
-  lapBtn.onclick = () => {
-    let laptime =
-      "${appendHours.innerHTML}:${appendMinutes.innerHTML}:${appendSeconds.innerHTML}:${appendTens.innerHTML}";
-    let li = document.createElement("li");
-    li.textContext = laptime;
-    lapList.appendChild(li);
+  modeBtn.onclick = () => {
+    if (document.body.classList.contains("light")) {
+      document.body.classList.replace("light", "dark");
+    } else {
+      document.body.classList.replace("dark", "light");
+    }
   };
 };
