@@ -1,4 +1,4 @@
-/* Variables for backgrounf color, text color and border radius*/
+/* Variables for background color, text color and border radius*/
 :root {
   --bg-color1: rgb(175, 28, 28);
   --bg-color2: white;
@@ -47,6 +47,7 @@ h3 {
   background-color: var(--bg-color2);
   margin: 5px;
   border-radius: var(--bdradius);
+  position: relative;
 }
 
 body.dark .container {
@@ -82,8 +83,9 @@ button:hover {
 }
 
 .toggle {
-  position: relative; /* theme toggle*/
-  float: right;
+  position: absolute; /* theme toggle*/
+  top: 10px;
+  right: 10px;
   width: 60px;
   height: 40px;
   margin: 10px;
