@@ -148,12 +148,12 @@ input:checked + .theme-selector::before {
   }
 
   .toggle {
-    width: 20px;
+    width: 18px;
     height: 20px;
   }
 
   .theme-selector::before {
     height: 17px;
-    width: 17px;
+    width: 15px;
   }
 }
