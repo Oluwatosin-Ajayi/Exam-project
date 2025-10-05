@@ -133,7 +133,7 @@ input:checked + .theme-selector::before {
 /* mobile responsiveness*/
 @media (max-width: 768px) {
   .container {
-    padding: 30px;
+    padding: 50px;
     max-width: 320px;
   }
 
@@ -154,7 +154,7 @@ input:checked + .theme-selector::before {
 
 @media (max-width: 480px) {
   body {
-    height: 100vh;
+    height: 80vh;
     padding: 10px;
   }
 
